@@ -1,9 +1,74 @@
 $(document).ready(function(){
+	/* onload */
+		onload()
+		function onload() {
+			if (!location.search || location.search.length == 0) {
+				makeButtons()
+
+				$("#score").text(100).hide()
+				$("#table").hide()
+				countdownTimer = 0
+				yarnTimer = setInterval(gameLoop, 100)
+			}
+			else {
+				startGame()
+			}
+		}
+
+	/* makeButtons */
+		function makeButtons() {
+			var options = [
+				{
+					name: "Thomas",
+					image: "https://img1.etsystatic.com/218/1/11013998/il_570xN.1326983115_hmje.jpg",
+					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Spice&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=green"
+				},
+				{
+					name: "Luca",
+					image: "https://img0.etsystatic.com/193/1/11013998/il_570xN.1279722824_djsr.jpg",
+					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Edwardian&cc=Clouds&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=yellow"
+				},
+				{
+					name: "Claire",
+					image: "https://img0.etsystatic.com/209/0/11013998/il_570xN.1279748376_4w4a.jpg",
+					search: "?start=true&item=cat&yarn=Bernat%20Pipsqueak&mc=Lemon&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=green"
+				},
+				{
+					name: "Amelia",
+					image: "https://img1.etsystatic.com/214/2/11013998/il_570xN.1323654867_pqkf.jpg",
+					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Clouds&cc=White&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=lightblue"
+				}
+			]
+
+			for(var i in options) {
+				$("#options").append("<a href='" + options[i].search + "' id='" + options[i].name + "' style='background-image:url(" + options[i].image + ")'><label>" + options[i].name + "</label></a>")
+			}
+
+		}
+	
+	/* start game (generate yarn, animate yarn and table) */
+		function startGame() {
+			styleCat()
+
+			$(".yarnBall").remove()
+			$("#table").css("bottom", "0px")
+			$("#cat").css("left", "50%")
+			$("#score").text("0")
+			$("#options").hide()
+
+			$("#table, #yarnZone, #score").animate({
+				opacity: 1
+			}, 2000)
+
+			countdownTimer = 0
+			yarnTimer = setInterval(gameLoop, 100)
+		}
+
 	/* get cat details from url */
 		function styleCat() {
 			var url = location.search
 			
-			if (url && url.length) {
+			if (url && url.length > 20) {
 				url = url.replace("?", "")
 				url = url.split("&")
 
@@ -42,29 +107,6 @@ $(document).ready(function(){
 			}
 		}
 	
-	/* start game (generate yarn, animate yarn and table) */
-		$("#reset").on("click", startGame)
-		function startGame() {
-			styleCat()
-
-			$(".yarnBall").remove()
-			$("#table").css("bottom", "0px")
-			$("#cat").css("left", "50%")
-			$("#score").text("0")
-
-			$("#table, #yarnZone, #score").animate({
-				opacity: 1
-			}, 2000)
-
-			$("#reset").animate({
-				opacity: 0
-			}, 2000).css("pointer-events", "none")
-
-			countdownTimer = 0
-			yarnTimer = setInterval(gameLoop, 100)
-		}
-		startGame()
-
 	/* makeYarn */
 		function makeYarn() {
 			var tableRight = 600
@@ -79,8 +121,13 @@ $(document).ready(function(){
 			// yarn ball random position
 				var yarnLeft = Math.random() * (tableRight - 50)
 
+
+			//alternate (sometimes)
+				var yarnTailOptions = ["", "", "alternate", "alternate", "centered"]
+				var alternateTail = Math.floor(Math.random() * yarnTailOptions.length)
+
 			// add yarn balls to page
-				$("#yarnZone").append("<div class='yarnBall' style='left:" + yarnLeft + "px; background-image:url(" + yarnColor + ")'></div>")	
+				$("#yarnZone").append("<div class='yarnBall' style='left:" + yarnLeft + "px; background-image:url(" + yarnColor + ")'><div class='yarnTail " + yarnTailOptions[alternateTail] + "' stringCycle='7' style='background-image:url(" + yarnColor + ")'></div></div>")	
 		}
 
 	/* moveYarn */
@@ -97,8 +144,9 @@ $(document).ready(function(){
 				var yarnRight = yarnLeft + 50
 				var matrix = $(yarnBall).css("transform").replace("matrix(", "").replace(")", "").split(",")
 				var yarnRotation = Math.round(Math.atan2(matrix[1], matrix[0]) * (180/Math.PI))
+				var yarnStringCycle = Number($(yarnBall).find(".yarnTail").attr("stringCycle"))
 
-			if ((yarnRight > tableLeft + 10) && (yarnLeft < tableRight - 10)) {
+			if ((yarnRight > tableLeft + 10) && (yarnLeft < tableRight - 10) && (yarnTop < pageBottom)) {
 				// for yarn that's already on the table...
 					if (yarnBottom == tableTop) {
 						var newYarnBottom = yarnBottom
@@ -149,7 +197,7 @@ $(document).ready(function(){
 				else {
 					var newYarnBottom = yarnBottom + 20
 					var newYarnLeft = yarnLeft
-					var newRotation = yarnRotation
+					var frames = [0,0,0,0,0,0,0,0]
 					$(yarnBall).removeClass("onTable")
 				}
 			}
@@ -159,6 +207,12 @@ $(document).ready(function(){
 					top: (newYarnBottom - 50) + "px",
 					left: (newYarnLeft) + "px",
 				}, 85, "linear")
+
+				yarnStringCycle = yarnStringCycle - 1
+				if (yarnStringCycle < 0) {
+					yarnStringCycle = 7
+				}
+				$(yarnBall).find(".yarnTail").attr("stringCycle", yarnStringCycle)
 
 				var rotateLoop = setInterval(function(){
 					if (frames && frames.length > 0) {
@@ -196,15 +250,7 @@ $(document).ready(function(){
 
 			else if (tableHeight <= 0) { //movin' on outta here
 				//game end!!!
-				clearInterval(yarnTimer)
-
-				$("#table, #yarnZone, #score").animate({
-					opacity: 0
-				}, 2000)
-
-				$("#reset").animate({
-					opacity: 1
-				}, 2000).css("pointer-events", "all")
+				endGame()
 			}
 		}
 
@@ -251,11 +297,10 @@ $(document).ready(function(){
 			else if (key == 39) {
 				moveRight()
 			}
-
 		})
 
 	/* move cat (click) */
-		$(document).on("mousedown touchstart touch", function(event) {
+		$(document).on("mousedown touchstart", function(event) {
 			var windowWidth = $(window).width()
 
 			if (event.clientX < (windowWidth / 2)) {
@@ -311,9 +356,17 @@ $(document).ready(function(){
 			$("#cat div").addClass("flipCat")
 		}
 
+	/* endGame */
+		function endGame() {
+			clearInterval(yarnTimer)
 
+			$("#table, #yarnZone, #score").animate({
+				opacity: 0
+			}, 2000)
 
-
-		
+			setTimeout(function(){
+				location.search = ""
+			}, 2000)
+		}
 		
 })
