@@ -1,53 +1,81 @@
 $(document).ready(function(){
 
-	/* move cat left/right */
+	/* move cat left/right (keyboard) */
 		$(document).on('keydown', function(event) {
 			var key = event.keyCode
 
-			if (key == 37 || key == 39) {
-				var catLeft = $("#cat").css("left")
-				catLeft = catLeft.replace("px", "")
-				catLeft = Number(catLeft)
-
-				var catRight = catLeft + 200
-
-				var tableLeft = 0
-				var tableRight = 600
-
-			// left
-				if (key == 37) {
-					var newLeft = catLeft - 10
-					if (newLeft - 100 < tableLeft) {
-						newLeft = 100						// because catLeft actually = the middle of the cat (50px)
-					}
-
-					$("#cat").animate({
-						left: newLeft + "px"
-					}, 50)
-
-					$("#catprofile").removeClass("flipCat")
-				}
-
-			// right
-				else if (key == 39) {
-					var newRight = catRight + 10
-					if (newRight - 100 > tableRight) {
-						newRight = tableRight + 100
-					}
-
-					$("#cat").animate({
-						left: (newRight - 200) + "px"
-					}, 50)
-
-					$("#catprofile").addClass("flipCat")
-				}
-
-				
+			if (key == 37) {
+				moveLeft()
 			}
+
+			else if (key == 39) {
+				moveRight()
+			}
+
 		})
+
+	/* move cat (click) */
+		$(document).on("mousedown", function(event) {
+			var windowWidth = $(window).width()
+
+			if (event.clientX < (windowWidth / 2)) {
+				moveLeft()
+			}
+
+			else {
+				moveRight()
+			}
+
+		})
+
+	/* moveLeft */
+		function moveLeft(){
+
+			var catLeft = $("#cat").css("left")
+			catLeft = catLeft.replace("px", "")
+			catLeft = Number(catLeft)
+
+			var tableLeft = 0
+
+			var newLeft = catLeft - 10
+			if (newLeft - 100 < tableLeft) {
+				newLeft = 100						// because catLeft actually = the middle of the cat (50px)
+			}
+
+			$("#cat").animate({
+				left: newLeft + "px"
+			}, 50)
+
+			$("#cat div").removeClass("flipCat")
+
+		}
+
+	/* moveRight */
+		function moveRight() {
+
+			var catLeft = $("#cat").css("left")
+			catLeft = catLeft.replace("px", "")
+			catLeft = Number(catLeft)
+
+			var catRight = catLeft + 200
+			var tableRight = 600
+
+			var newRight = catRight + 10
+			if (newRight - 100 > tableRight) {
+				newRight = tableRight + 100
+			}
+
+			$("#cat").animate({
+				left: (newRight - 200) + "px"
+			}, 50)
+
+			$("#cat div").addClass("flipCat")
+		}
 
 	/* start game (generate yarn, animate yarn and table) */
 		function startGame() {
+			styleCat()
+
 			$(".yarnBall").remove()
 			$("#table").css("bottom", "0px")
 			$("#cat").css("left", "50%")
@@ -115,7 +143,7 @@ $(document).ready(function(){
 								var yarnLeft = Number($(this).css("left").replace("px", ""))
 								var yarnRight = yarnLeft + 50
 							
-							if ((yarnRight > tableLeft) && (yarnLeft < tableRight)) {
+							if ((yarnRight > tableLeft + 10) && (yarnLeft < tableRight - 10)) {
 								// for yarn that's already on the table...
 									if (yarnBottom == tableTop) {
 										var newYarnBottom = yarnBottom
@@ -200,15 +228,43 @@ $(document).ready(function(){
 			startGame()
 		})
 
+	/* get cat details from url */
+		function styleCat() {
+			var url = location.search
+			url = url.replace("?", "")
+			url = url.split("&")
+
+			var get = {}
+			for (var i = 0; i < url.length; i++) {
+				var pair = url[i].split("=")
+
+				var key = pair[0]
+				var value = pair[1].replace(/\%20/g, " ")
+
+				if (key == "cc_areas") {
+					value = value.split(",")
+				}
+
+				get[key] = value
+			}
+
+			//step 0: get urls for mc and cc
+				var mainColor = stash[ get.yarn ][ get.mc ]
+				var contrastingColor = stash[ get.yarn ][ get.cc ]
+
+			//step 1: color the main animal
+				$("#catprofile").css("background-image", "url(" + mainColor + ")").show()
+
+			//step 2: color the selected cc areas
+				get.cc_areas.forEach(function(area) {
+					$("#" + area).css("background-image", "url(" + contrastingColor + ")").show()
+				})
+
+			//step 3: color the eye
+				$("#catprofile_eye").css("background-color", get.accent_color).show()
+		}
+
 	/* on load */
 		startGame()
-		test()
-		console.log(KnitPicks["Blackberry"])
+		
 })
-
-
-// x = 1
-
-// x = x + 1
-// x = x++
-// x += 1
