@@ -231,37 +231,45 @@ $(document).ready(function(){
 	/* get cat details from url */
 		function styleCat() {
 			var url = location.search
-			url = url.replace("?", "")
-			url = url.split("&")
+			
+			if (url && url.length) {
+				url = url.replace("?", "")
+				url = url.split("&")
 
-			var get = {}
-			for (var i = 0; i < url.length; i++) {
-				var pair = url[i].split("=")
+				var get = {}
+				for (var i = 0; i < url.length; i++) {
+					var pair = url[i].split("=")
 
-				var key = pair[0]
-				var value = pair[1].replace(/\%20/g, " ")
+					var key = pair[0]
+					var value = pair[1].replace(/\%20/g, " ")
 
-				if (key == "cc_areas") {
-					value = value.split(",")
+					if (key == "cc_areas") {
+						value = value.split(",")
+					}
+
+					get[key] = value
 				}
 
-				get[key] = value
+				//step 0: get urls for mc and cc
+					var mainColor = stash[ get.yarn ][ get.mc ]
+					var contrastingColor = stash[ get.yarn ][ get.cc ]
+
+				//step 1: color the main animal
+					$("#catprofile").css("background-image", "url(" + mainColor + ")").show()
+
+				//step 2: color the selected cc areas
+					get.cc_areas.forEach(function(area) {
+						$("#" + area).css("background-image", "url(" + contrastingColor + ")").show()
+					})
+
+				//step 3: color the eye
+					$("#catprofile_eye").css("background-color", get.accent_color).show()
+
+			}
+			else {
+				$("#catprofile").show()
 			}
 
-			//step 0: get urls for mc and cc
-				var mainColor = stash[ get.yarn ][ get.mc ]
-				var contrastingColor = stash[ get.yarn ][ get.cc ]
-
-			//step 1: color the main animal
-				$("#catprofile").css("background-image", "url(" + mainColor + ")").show()
-
-			//step 2: color the selected cc areas
-				get.cc_areas.forEach(function(area) {
-					$("#" + area).css("background-image", "url(" + contrastingColor + ")").show()
-				})
-
-			//step 3: color the eye
-				$("#catprofile_eye").css("background-color", get.accent_color).show()
 		}
 
 	/* on load */
