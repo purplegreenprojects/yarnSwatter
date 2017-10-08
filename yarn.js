@@ -30,7 +30,7 @@
 		"Sand Dune":"http://ep.yimg.com/ay/yhst-73078103945512/lion-brand-homespun-yarn-sand-dune-2.gif",
 		"Shaker":"https://d2d00szk9na1qq.cloudfront.net/Product/87bc06a5-2793-4233-95a6-a538bc5b412c/Images/Medium_LBY-249.jpg",
 		"Black":"https://d2d00szk9na1qq.cloudfront.net/Product/2af5de9f-faca-4854-90f3-bb3e79ab04bc/Images/Medium_LBY-253.jpg",
-		"Spice":"http://www.lionbrand.com/stores/eyarn/pictures/790-425a.jpg",
+		"Spice":"https://isv-loveknitting.freetls.fastly.net/index.php/v1/images/384cf47fad8967e7ab7af67673671578/e5d7d5ed-cbdc-46ff-90f9-45de78d3c624.jpg/0/-/390T390",
 		"Sierra":"http://ep.yimg.com/ay/yhst-73078103945512/lion-brand-homespun-yarn-sierra-5.gif",
 		"Desert Mountain":"http://ep.yimg.com/ay/yhst-35918166028110/lion-brand-homespun-yarn-desert-mountain-3.gif",
 		"Colonial":"http://ep.yimg.com/ay/yhst-132146841436290/homespun-yarn-colonial-8.jpg",
