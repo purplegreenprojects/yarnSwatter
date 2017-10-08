@@ -29,7 +29,7 @@
 		text-align: center;
 		position: absolute;
 		top: 0px;
-		z-index: 2;
+		z-index: 4;
 	}
 
 /* score */
@@ -148,7 +148,8 @@
 		display: none;
 		top: 0px;
 		left: 0px;
-		/*background-size: 28px auto;*/
+		background-size: 30px auto;
+		filter: blur(0.5px);
 	}
 
 	#catprofile {
@@ -281,6 +282,72 @@
 		background-size: contain;
 		box-shadow: 0px 0px 20px rgba(50,50,50,0.5) inset;
 		transform: rotate(0deg);
+		z-index: 3;
+	}
+
+	.yarnTail {
+		z-index: 2;
+		width: 100px;
+		height: 100px;
+		position: relative;
+		left: -10%;
+		top: -175%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		clip-path: polygon(51% 0%, 51.5% 5%, 54.5% 28%, 55% 33%, 54.5% 38%, 47.5% 61%, 47% 66%, 47.5% 71%, 50.5% 95%, 51% 100%, 49% 100%, 48.5% 95%, 45.5% 71%, 45% 66%, 45.5% 61%, 52.5% 38%, 53% 33%, 52.5% 28%, 49.5% 5%, 49% 0%);
+	}
+
+	.yarnTail.centered {
+		left: -50%;
+	}
+
+	.yarnTail.alternate {
+		left: -90%;
+	}
+
+	.yarnTail[stringCycle='0'], .yarnTail[stringCycle='1'], .yarnTail[stringCycle='2'], .yarnTail[stringCycle='3'] {
+		transform: scaleX(-1);
+	}
+
+	.yarnBall.onTable .yarnTail {
+		display: none;
+	}
+
+/* options */
+	#options {
+		width: auto;
+		height: auto;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		z-index: 10;
+	}
+
+	#options a {
+		height: 200px;
+		width: 200px;
+		border-radius: 50%;
+		float: left;
+		box-shadow: 0 0 10px black;
+		margin: 10px;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	#options a:hover {
+		box-shadow: 0 0 20px black;
+	}
+
+	#options a label {
+		position: relative;
+		font-size: 24px;
+		font-family: Roboto Condensed, sans-serif;
+		bottom: -200px;
+		text-align: center;
+		width: 100%;
 	}
 
 /* footer */
