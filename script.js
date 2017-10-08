@@ -20,7 +20,7 @@ $(document).ready(function(){
 			var options = [
 				{
 					name: "Thomas",
-					image: "https://img1.etsystatic.com/218/1/11013998/il_570xN.1326983115_hmje.jpg",
+					image: "https://img1.etsystatic.com/216/0/11013998/il_570xN.1326983031_3zue.jpg",
 					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Spice&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=green"
 				},
 				{
@@ -30,12 +30,12 @@ $(document).ready(function(){
 				},
 				{
 					name: "Claire",
-					image: "https://img0.etsystatic.com/209/0/11013998/il_570xN.1279748376_4w4a.jpg",
+					image: "https://img0.etsystatic.com/182/0/11013998/il_570xN.1279750322_kply.jpg",
 					search: "?start=true&item=cat&yarn=Bernat%20Pipsqueak&mc=Lemon&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=green"
 				},
 				{
 					name: "Amelia",
-					image: "https://img1.etsystatic.com/214/2/11013998/il_570xN.1323654867_pqkf.jpg",
+					image: "https://img0.etsystatic.com/205/0/11013998/il_570xN.1279819008_sfmd.jpg",
 					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Clouds&cc=White&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=lightblue"
 				}
 			]
@@ -301,17 +301,26 @@ $(document).ready(function(){
 
 	/* move cat (click) */
 		$(document).on("mousedown touchstart", function(event) {
-			var windowWidth = $(window).width()
-
-			if (event.clientX < (windowWidth / 2)) {
-				moveLeft()
-			}
-
-			else {
-				moveRight()
-			}
-
+			clickHold = event.clientX || event.originalEvent.targetTouches[0].clientX
 		})
+
+		$(document).on("mouseup touchend", function() {
+			clickHold = false
+		})
+
+		moveCatClick = setInterval(function() {
+			if (typeof clickHold !== "undefined" && clickHold > 0) {
+				var windowWidth = $(window).width()
+
+				if (clickHold < (windowWidth / 2)) {
+					moveLeft()
+				}
+
+				else {
+					moveRight()
+				}
+			}
+		}, 100)
 
 	/* moveLeft */
 		function moveLeft() {
