@@ -15,7 +15,7 @@
 		"Lime":"http://yarnspirations.s3.amazonaws.com/catalog/product/cache/1/thumbnail/150x/9df78eab33525d08d6e5fb8d27136e95/S/W/SW-59222-162059-B-PIP-LimeGreen.jpg",
 		"Funny Bunny":"http://yarnspirations.s3.amazonaws.com/catalog/product/cache/1/thumbnail/150x/9df78eab33525d08d6e5fb8d27136e95/S/W/SW-59744-162059-B-PIP-FunnyBunny.jpg",
 		"Candy Girl":"http://yarnspirations.s3.amazonaws.com/catalog/product/cache/1/thumbnail/150x/9df78eab33525d08d6e5fb8d27136e95/S/W/SW-59415-162059-B-PIP-CandyGirl.jpg",
-		"Sittin' Pretty":"http://yarnspirations.s3.amazonaws.com/catalog/product/cache/1/thumbnail/150x/9df78eab33525d08d6e5fb8d27136e95/S/W/SW-59315-162059-B-PIP-SittinPretty.jpg",
+		"Sittin Pretty":"http://yarnspirations.s3.amazonaws.com/catalog/product/cache/1/thumbnail/150x/9df78eab33525d08d6e5fb8d27136e95/S/W/SW-59315-162059-B-PIP-SittinPretty.jpg",
 		"Baby Baby":"http://yarnspirations.s3.amazonaws.com/catalog/product/cache/1/thumbnail/150x/9df78eab33525d08d6e5fb8d27136e95/S/W/SW-59306-162059-B-PIP-BabyBaby.jpg"
 	}
 
