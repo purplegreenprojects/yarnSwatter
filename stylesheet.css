@@ -35,6 +35,11 @@
 	#header img {
 		border-radius: 100%;
 		float: left;
+		user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
 	}
 
 	#title {
@@ -53,6 +58,11 @@
 		float: right;
 		font-size: 30px;
 		padding: 25px;
+		user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
 	}
 
 	#links a {
@@ -354,19 +364,13 @@
 
 /* options */
 	#options {
-		width: 1100px;
+		width: 660px;
 		height: auto;
 		position: absolute;
 		top: 53%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
 		z-index: 10;
-	}
-
-	@media screen and (max-width: 1100px) {
-		#options {
-			width: 660px;
-		}
 	}
 
 	#options a {
