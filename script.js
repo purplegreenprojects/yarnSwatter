@@ -126,7 +126,7 @@ $(document).ready(function(){
 			}, 2000)
 
 			countdownTimer = 0
-			//yarnTimer = setInterval(gameLoop, 100)
+			yarnTimer = setInterval(gameLoop, 100)
 		}
 
 	/* get cat details from url */
