@@ -398,6 +398,25 @@
 		width: 100%;
 	}
 
+/* gameOver */
+	#gameOver {
+		width: 300px;
+		height: auto;
+		position: absolute;
+		top: 53%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		z-index: 10;
+		opacity: 0;
+		text-align: center;
+		display: none;
+		font-family: Roboto Condensed;
+	}
+
+	#etsyLink {
+		margin: 10px;
+	}
+
 /* footer */
 
 	#footer {
