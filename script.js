@@ -303,11 +303,13 @@ $(document).ready(function(){
 			var tableHeight = Math.ceil(pageBottom - tableTop)
 
 			if (tableTarget < tableHeight) { //movin' down
+				$("#table").stop()
 				$("#table").animate({
 					bottom: "-=2px"
 				}, 85, "linear")
 			}
 			else if (tableTarget > tableHeight) { //movin' up
+				$("#table").stop()
 				$("#table").animate({
 					bottom: "+=2px"
 				}, 85, "linear")
