@@ -215,7 +215,23 @@ $(document).ready(function(){
 				// for yarn that's already on the table...
 					if (yarnBottom == tableTop) {
 						var newYarnBottom = yarnBottom
-						
+					}
+
+				// for yarn that's still falling
+					else if (yarnBottom + 20 >= tableTop) {
+						var newYarnBottom = tableTop
+						var newYarnLeft = yarnLeft
+						var newRotation = yarnRotation
+						$(yarnBall).addClass("onTable")
+					}
+					else {
+						var newYarnBottom = yarnBottom + 20
+						var newYarnLeft = yarnLeft
+						var newRotation = yarnRotation
+					}
+
+				// for yarn that has the class .onTable
+					if ( $(yarnBall).hasClass("onTable") ) {
 						var frames = []
 						var nextFrame = yarnRotation
 
@@ -236,20 +252,8 @@ $(document).ready(function(){
 							}
 						}
 					}
-
-				// for yarn that's still falling
-					else if (yarnBottom + 20 >= tableTop) {
-						var newYarnBottom = tableTop
-						var newYarnLeft = yarnLeft
-						var newRotation = yarnRotation
-						$(yarnBall).addClass("onTable")
-					}
-					else {
-						var newYarnBottom = yarnBottom + 20
-						var newYarnLeft = yarnLeft
-						var newRotation = yarnRotation
-					}
 			}
+			
 			
 			// for yarn that's beyond the edge of the table (left or right)
 			else {
