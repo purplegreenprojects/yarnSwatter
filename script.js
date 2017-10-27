@@ -254,6 +254,7 @@ $(document).ready(function(){
 					}
 			}
 			
+			
 			// for yarn that's beyond the edge of the table (left or right)
 			else {
 				if (yarnTop > pageBottom) {
