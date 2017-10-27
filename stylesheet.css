@@ -369,7 +369,7 @@
 
 /* options */
 	#options {
-		width: 660px;
+		width: 600px;
 		height: auto;
 		position: absolute;
 		top: 53%;
@@ -379,8 +379,8 @@
 	}
 
 	#options a {
-		height: 200px;
-		width: 200px;
+		height: 180px;
+		width: 180px;
 		border-radius: 50%;
 		float: left;
 		box-shadow: 0 0 10px black;
