@@ -24,81 +24,86 @@ $(document).ready(function(){
 					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Spice&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=green"
 				},
 				{
-					name: "Luca",
-					image: "https://img0.etsystatic.com/193/1/11013998/il_570xN.1279722824_djsr.jpg",
-					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Edwardian&cc=Clouds&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=yellow"
+					name: "Olivia",
+					image: "https://img.etsystatic.com/il/b3a2fb/1279810886/il_570xN.1279810886_pufd.jpg",
+					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Clouds&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=green"
 				},
 				{
 					name: "Claire",
 					image: "https://img0.etsystatic.com/182/0/11013998/il_570xN.1279750322_kply.jpg",
 					search: "?start=true&item=cat&yarn=Bernat%20Pipsqueak&mc=Lemon&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=green"
 				},
-				{
-					name: "Amelia",
-					image: "https://img0.etsystatic.com/205/0/11013998/il_570xN.1279819008_sfmd.jpg",
-					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Clouds&cc=White&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=lightblue"
-				}
+				// {
+				// 	name: "Luca",
+				// 	image: "https://img0.etsystatic.com/193/1/11013998/il_570xN.1279722824_djsr.jpg",
+				// 	search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Edwardian&cc=Clouds&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=yellow"
+				// },
+				// {
+				// 	name: "Amelia",
+				// 	image: "https://img0.etsystatic.com/205/0/11013998/il_570xN.1279819008_sfmd.jpg",
+				// 	search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Clouds&cc=White&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=lightblue"
+				// }
 			]
 
 			var months = [
 				{
 					name: "Winter Cat",
-					image: "wintercat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Bernat%20Pipsqueak&mc=Vanilla&cc=Baby%20Blue&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=blue"
 				},
 				{
 					name: "Valentine Cat",
-					image: "valentinecat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Premier%20Parfait&mc=Cherry&cc=Meringue&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=purple"
 				},
 				{
 					name: "Patrick the Cat",
-					image: "patrickthecat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=green&yarn=KnitPicks%20Comfy&mc=Jalapeno&cc=Peapod"
 				},
 				{
 					name: "April Fool Cat",
-					image: "aprilfoolcat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Premier%20Parfait&mc=Licorice&cc=Lemon%20Blueberry&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_nose-area,catface_nose-area,catprofile_muzzle,catface_muzzle,catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_tail&accent_color=purple"
 				},
 				{
 					name: "Mom Cat",
-					image: "momcat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Plum&cc=Parfait&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_front_left&accent_color=black"
 				},
 				{
 					name: "Dad Cat",
-					image: "dadcat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Caron%20Simply%20Soft&mc=Pagoda&cc=Woodland&cc_areas=catprofile_muzzle,catface_muzzle,catprofile_paw_front_right,catprofile_paw_front_left,catprofile_tail&accent_color=brown"
 				},
 				{
 					name: "Independent Cat",
-					image: "independentcat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=KnitPicks%20Comfy&mc=Planetarium&cc=Rosehip&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_muzzle,catface_muzzle,catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=blue"
 				},
 				{
 					name: "Summer Cat",
-					image: "summercat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Caron%20Simply%20Soft&mc=Pumpkin&cc=Sunshine&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_nose-area,catface_nose-area,catprofile_muzzle,catface_muzzle,catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=orange"
 				},
 				{
 					name: "Peace Cat",
-					image: "peacecat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Bernat%20Pipsqueak&mc=Sittin%20Pretty&cc=Baby%20Baby&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_nose-area,catface_nose-area,catprofile_muzzle,catface_muzzle,catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=blue"
 				},
 				{
 					name: "Halloween Cat",
-					image: "halloweencat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Premier%20Parfait&mc=Black&cc=Candy%20Corn&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_muzzle,catface_muzzle,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=purple"
 				},
 				{
 					name: "Thanksgiving Cat",
-					image: "thanksgivingcat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Barley&cc=Golden&cc_areas=catprofile_nose-area,catface_nose-area,catprofile_muzzle,catface_muzzle,catprofile_chin,catprofile_stomach,catface_chin&accent_color=orange"
 				},
 				{
 					name: "Holiday Cat",
-					image: "holidaycat.png",
+					image: "mystery.png",
 					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Forest&cc=White&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_nose-area,catface_nose-area,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=green"
 				}
 			]
