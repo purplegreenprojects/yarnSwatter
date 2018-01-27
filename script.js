@@ -23,26 +23,26 @@ $(document).ready(function(){
 					image: "https://img1.etsystatic.com/216/0/11013998/il_570xN.1326983031_3zue.jpg",
 					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Spice&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=green"
 				},
-				{
-					name: "Olivia",
-					image: "https://img.etsystatic.com/il/b3a2fb/1279810886/il_570xN.1279810886_pufd.jpg",
-					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Clouds&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=green"
-				},
+				// {
+				// 	name: "Olivia",
+				// 	image: "https://img.etsystatic.com/il/b3a2fb/1279810886/il_570xN.1279810886_pufd.jpg",
+				// 	search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Clouds&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=green"
+				// },
 				{
 					name: "Claire",
 					image: "https://img0.etsystatic.com/182/0/11013998/il_570xN.1279750322_kply.jpg",
 					search: "?start=true&item=cat&yarn=Bernat%20Pipsqueak&mc=Lemon&cc=White&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_paw_front_right,catprofile_paw_back_right,catprofile_paw_front_left,catprofile_paw_back_left,catprofile_tail&accent_color=green"
 				},
-				// {
-				// 	name: "Luca",
-				// 	image: "https://img0.etsystatic.com/193/1/11013998/il_570xN.1279722824_djsr.jpg",
-				// 	search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Edwardian&cc=Clouds&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=yellow"
-				// },
-				// {
-				// 	name: "Amelia",
-				// 	image: "https://img0.etsystatic.com/205/0/11013998/il_570xN.1279819008_sfmd.jpg",
-				// 	search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Clouds&cc=White&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=lightblue"
-				// }
+				{
+					name: "Luca",
+					image: "https://img0.etsystatic.com/193/1/11013998/il_570xN.1279722824_djsr.jpg",
+					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Edwardian&cc=Clouds&cc_areas=catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=yellow"
+				},
+				{
+					name: "Amelia",
+					image: "https://img0.etsystatic.com/205/0/11013998/il_570xN.1279819008_sfmd.jpg",
+					search: "?start=true&item=cat&yarn=Lion%20Brand%20Homespun&mc=Clouds&cc=White&cc_areas=catprofile_ears,catface_ear_right,catface_ear_left,catprofile_chin,catprofile_stomach,catface_chin,catprofile_tail&accent_color=lightblue"
+				}
 			]
 
 			var months = [
@@ -334,12 +334,12 @@ $(document).ready(function(){
 		function gameLoop() {
 			/* makeYarn (yes/no) */
 				var yarnCount = $(".yarnBall").toArray().length
-				if ((countdownTimer == 0) && (yarnCount < 25)) {
+				if ((countdownTimer == 0) && (yarnCount < 30)) {
 					makeYarn()
 
 					// reset countdownTimer
 					var score = Number($("#score").text())
-					countdownTimer = Math.max(Math.floor(-1 * score + 50), 10)
+					countdownTimer = Math.max(Math.floor(-1 * score + 50), 5)
 				}
 				else {
 					// the other 10/11 times when it does nothing
